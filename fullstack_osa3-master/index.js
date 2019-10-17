@@ -29,8 +29,12 @@ let persons = [
 
 //apin info
 app.get("/info", (req, res) => {
-    res.send(`<p>Phonebook has info for ${persons.length} people</p>
-    <p>${Date()}</p>`)
+    Person.find({})
+    .then(result => {
+        res.send(`<p>Phonebook has info for ${result.length} people</p>
+        <p>${Date()}</p>`)
+    })
+    
 })
 
 //GET all
